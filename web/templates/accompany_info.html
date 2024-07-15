@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Neon Admin Panel">
+    <meta name="author" content="">
+
+    <title>首页</title>
+
+
+    <link rel="stylesheet" href="static/css/jquery-ui-1.10.3.custom.min.css">
+    <link rel="stylesheet" href="static/css/entypo.css">
+    <link rel="stylesheet" href="static/css/css.css">
+    <link rel="stylesheet" href="static/css/neon-core.css">
+    <link rel="stylesheet" href="static/css/neon-theme.css">
+    <link rel="stylesheet" href="static/css/neon-forms.css">
+    <link rel="stylesheet" href="static/css/custom.css">
+    <link rel="stylesheet" href="static/css/adminlte.min.css">
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+
+</head>
+<body class="page-body  page-left-in" data-url="http://neon.dev">
+
+<div class="page-container">
+
+    <div class="sidebar-menu">
+        <header class="logo-env">
+
+            <div class="logo">
+                <a href="#">
+                    <h3 style="color: #fff;font-weight: bold;margin-top: 5px;">医院陪诊管理系统(陪诊员)</h3>
+                </a>
+            </div>
+
+        </header>
+
+        <div class="sidebar-user-info">
+
+            <div class="sui-normal">
+                <a href="#" class="user-link">
+                    <img style="width:95%;height: 95%" src="static/image/default2.jpg" alt="" class="img-circle">
+
+                    <strong style="text-align:center;margin-top:5px"></strong>
+                </a>
+            </div>
+
+        </div>
+
+
+        <ul id="main-menu" class="">
+            <li class="opened">
+                <a href="/accompanimentSystem/accompanyIndex.do">
+                    <i class="entypo-gauge"></i>
+                    <span>首页</span>
+                </a>
+            </li>
+
+            <li class="opened">
+                <a href="/accompanimentSystem/accompanyInfo.do">
+                    <i class="entypo-gauge"></i>
+                    <span>个人信息管理</span>
+                </a>
+            </li>
+
+            <li class="dataOpened">
+                <a href="#">
+                    <i class="entypo-layout"></i>
+                    <span>订单管理</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="/accompanimentSystem/accompanyNewOrder.do">
+                            <span>新订单</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/accompanimentSystem/accompanyOrders.do">
+                            <span>订单历史</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <div class="main-content">
+
+        <div class="row">
+            <!-- Raw Links -->
+            <div style="display:flex;" class="col-md-12 hidden-xs">
+
+                <ul style="margin-left:auto" class="list-inline links-list pull-right">
+                    <div>
+                        <a href="/accompanimentSystem/logout.do">
+                            退出登录 <i class="entypo-logout right"></i>
+                        </a>
+                    </div>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <hr style="margin-top:0">
+
+
+        <div class="row">
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title">个人信息管理</h1><br/>
+                        <form id="adminInfoForm">
+                            <div class="form-group">
+                                <label for="accompanyName">姓名</label>
+                                <input type="text" class="form-control" id="accompanyName" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="accompanyPhone">电话</label>
+                                <input type="text" class="form-control" id="accompanyPhone" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="accompanySex">性别</label>
+                                <input type="text" class="form-control" id="accompanySex" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="accompanyAge">年龄</label>
+                                <input type="number" class="form-control" id="accompanyAge" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="accompanyIdCardNum">身份证号</label>
+                                <input type="text" class="form-control" id="accompanyIdCardNum" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="accompanyWorkAge">工龄</label>
+                                <input type="text" class="form-control" id="accompanyWorkAge" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="accompanyPrice">日薪</label>
+                                <input type="text" class="form-control" id="accompanyPrice" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="accompanyDescription">个人介绍</label>
+                                <input type="text" class="form-control" id="accompanyDescription" disabled>
+                            </div>
+                            <button type="button" class="btn btn-primary" id="editButton">编辑</button>
+                            <button type="button" class="btn btn-success" id="saveButton" style="display:none;">保存</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="card" style="margin-top:20px;">
+                    <div class="card-body">
+                        <h1 class="card-title">修改密码</h1>
+                        <div class="form-group">
+                            <input type="password" id="newPassword" class="form-control" placeholder="新密码">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="confirmPassword" class="form-control" placeholder="确认新密码">
+                        </div>
+                        <button class="btn btn-primary" id="updatePasswordButton">修改密码</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div><!-- Footer -->
+        <div class="row">
+
+        </div>
+        <footer class="main">
+        </footer>
+    </div>
+
+
+</div>
+
+
+<link rel="stylesheet" href="static/css/jquery-jvectormap-1.2.2.css">
+<link rel="stylesheet" href="static/css/rickshaw.min.css">
+
+<script src="static/js/jquery-1.11.0.min.js"></script>
+<script src="static/js/main-gsap.js"></script>
+<script src="static/js/jquery-ui-1.10.3.minimal.min.js"></script>
+<script src="static/js/bootstrap.js"></script>
+<script src="static/js/joinable.js"></script>
+<script src="static/js/resizeable.js"></script>
+<script src="static/js/neon-api.js"></script>
+<script src="static/js/jquery.sparkline.min.js"></script>
+<script src="static/js/d3.v3.js"></script>
+<script src="static/js/rickshaw.min.js"></script>
+<script src="static/js/raphael-min.js"></script>
+<script src="static/js/morris.min.js"></script>
+<script src="static/js/toastr.js"></script>
+<script src="static/js/neon-chat.js"></script>
+<script src="static/js/neon-custom.js"></script>
+<script src="static/js/neon-demo.js"></script>
+<link rel="stylesheet" href="static/css/datatables.responsive.css">
+
+<script src="static/js/datatables.responsive.js"></script>
+<script src="static/js/jquery.dataTables.columnFilter.js"></script>
+<script src="static/js/jquery.dataTables.min.js"></script>
+<script src="static/js/TableTools.min.js"></script>
+<script src="static/js/dataTables.bootstrap.js"></script>
+<script src="static/js/lodash.min.js"></script>
+</body>
+
+
+<script src="static/plugins/bootstrap/js/bootstrap.js"></script>
+<script src="static/plugins/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="static/plugins/bootstrap/js/bootstrap.js.map"></script>
+<script src="static/plugins/bootstrap/js/bootstrap.bundle.js.map"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $.get("http://localhost:8080/accompanimentSystem/accompanyAction.do?type=getInfo", function(data) {
+            $("#accompanyName").val(data.accompanyName);
+            $("#accompanyPhone").val(data.accompanyPhone);
+            $("#accompanySex").val(data.accompanySex);
+            $("#accompanyAge").val(data.accompanyAge);
+            $("#accompanyIdCardNum").val(data.accompanyIdCardNum);
+            $("#accompanyWorkAge").val(data.accompanyWorkAge);
+            $("#accompanyPrice").val(data.accompanyPrice);
+            $("#accompanyDescription").val(data.accompanyDescription);
+        });
+
+        // 编辑按钮点击事件
+        $("#editButton").click(function() {
+            $("#accompanyName, #accompanyPhone, #accompanySex, #accompanyAge, #accompanyIdCardNum, #accompanyWorkAge, #accompanyPrice, #accompanyDescription").prop("disabled", false);
+            $("#editButton").hide();
+            $("#saveButton").show();
+        });
+
+        // 保存按钮点击事件
+        $("#saveButton").click(function() {
+            const accompanyName = $("#accompanyName").val();
+            const accompanyPhone = $("#accompanyPhone").val();
+            const accompanySex = $("#accompanySex").val();
+            const accompanyAge = $("#accompanyAge").val();
+            const accompanyIdCardNum = $("#accompanyIdCardNum").val();
+            const accompanyWorkAge = $("#accompanyWorkAge").val();
+            const accompanyPrice = $("#accompanyPrice").val();
+            const accompanyDescription = $("#accompanyDescription").val();
+
+            $.post("http://localhost:8080/accompanimentSystem/accompanyAction.do?type=update", {
+                accompanyName: accompanyName,
+                accompanyPhone: accompanyPhone,
+                accompanySex: accompanySex,
+                accompanyAge: accompanyAge,
+                accompanyIdCardNum: accompanyIdCardNum,
+                accompanyWorkAge: accompanyWorkAge,
+                accompanyPrice: accompanyPrice,
+                accompanyDescription: accompanyDescription
+            }, function(response) {
+                alert("信息更新成功!");
+                $("#accompanyName, #accompanyPhone, #accompanySex, #accompanyAge, #accompanyIdCardNum, #accompanyWorkAge, #accompanyPrice, #accompanyDescription").prop("disabled", true);
+                $("#saveButton").hide();
+                $("#editButton").show();
+            });
+        });
+
+        // 修改密码按钮点击事件
+        $("#updatePasswordButton").click(function() {
+            const newPassword = $("#newPassword").val();
+            const confirmPassword = $("#confirmPassword").val();
+
+            if (newPassword !== confirmPassword) {
+                alert("密码不匹配，请重新输入");
+                return;
+            }
+
+            $.post("http://localhost:8080/accompanimentSystem/accompanyAction.do?type=resetPassword", {
+                new_password: newPassword
+            }, function(response) {
+                alert("密码更新成功!");
+                $("#newPassword").val("");
+                $("#confirmPassword").val("");
+            });
+        });
+    });
+</script>
+
+</html>

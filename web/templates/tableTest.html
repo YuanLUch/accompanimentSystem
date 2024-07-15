@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/bootstrap-table.css">
+    <link rel="stylesheet" href="../static/css/adminlte.min.css">
+</head>
+<body>
+    <div class="card-body" style="width: 300px">
+        <div id="tableTest" style="width: 200px" class="card-body"></div>
+    </div>
+
+</body>
+<script src="../static/js/jq.js"></script>
+<script src="../static/js/bootstrap.js"></script>
+<script src="../static/js/bootstrap-table.js"></script>
+
+<script>
+    $('#tableTest').bootstrapTable({
+        columns: [{field: 'id', title: 'item id'},
+                {field: 'name', title: 'id name'},
+                {field: 'price', title: 'item price'}],
+        data: [{id: 1, name: 'item 1', price: '1$'},
+            {id: 2, name: 'item 2', price: '2$'},
+            {id: 2, name: 'item 2', price: '2$'},
+            {id: 2, name: 'item 2', price: '2$'},
+            {id: 2, name: 'item 2', price: '2$'}],
+        pagination : true,
+        pageSize : 4,
+        buttonsAlign: "left"
+    })
+</script>
+</html>

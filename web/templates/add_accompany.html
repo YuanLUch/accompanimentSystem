@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AdminLTE 3 | Registration Page</title>
+
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="static/plugins/fontawesome-free/css/all.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="static/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="static/css/adminlte.min.css">
+    <link rel="">
+</head>
+<body class="hold-transition register-page">
+<div class="register-box">
+    <div class="register-logo">
+        <a href="#"><b>注册</b></a>
+    </div>
+
+    <div class="card" style="border-radius: 20px">
+        <div class="card-body register-card-body" style="background-color: rgba(255, 255, 255, 0.1)">
+            <p class="login-box-msg">Register a new membership</p>
+
+            <div>
+
+                <div id="msg" class="bg-success" style="color: white; text-align: center" hidden="hidden">
+                    <b style="text-align: center">注册成功</b>
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="用户名" name="accompanyName" id="accompanyName">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="password" class="form-control" placeholder="密码" name="accompanyPassword" id="accompanyPassword">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="password" class="form-control" placeholder="请确认密码" name="checkPassword" id="checkPassword">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="电话" name="accompanyPhone" id="accompanyPhone">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="性别" name="accompanySex" id="accompanySex">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="number" class="form-control" placeholder="年龄" name="accompanyAge" id="accompanyAge">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="身份证号" name="accompanyIdCardNum" id="accompanyIdCardNum">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="number" class="form-control" placeholder="工龄(年)" name="accompanyWorkAge" id="accompanyWorkAge">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="number" class="form-control" placeholder="日薪(元)" name="accompanyPrice" id="accompanyPrice">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="个人简介" name="accompanyDescription" id="accompanyDescription">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-8">
+                        <div class="icheck-primary">
+                            <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+                            <label for="agreeTerms">
+                                同意用户条款 <a href="#">terms</a>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-4">
+                        <button id="submit" type="submit" class="btn btn-success btn-block">注册</button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </div>
+
+
+
+            <a href="/accompanimentSystem/login.do" class="text-center" style="color: black;">已有账号</a>
+        </div>
+        <!-- /.form-box -->
+    </div><!-- /.card -->
+</div>
+<!-- /.register-box -->
+<script>
+    var submit = document.getElementById('submit');
+    submit.onclick = function () {
+        var msgBlock = document.getElementById('msg');
+        msgBlock.removeAttribute("hidden");
+
+        var accompanyName = document.getElementById('accompanyName').value;
+        var accompanyPassword = document.getElementById('accompanyPassword').value;
+        var checkPassword = document.getElementById('checkPassword').value;
+        var accompanyPhone = document.getElementById('accompanyPhone').value;
+        var accompanySex = document.getElementById('accompanySex').value;
+        var accompanyAge = document.getElementById('accompanyAge').value;
+        var accompanyIdCardNum = document.getElementById('accompanyIdCardNum').value;
+        var accompanyWorkAge = document.getElementById('accompanyWorkAge').value;
+        var accompanyPrice = document.getElementById('accompanyPrice').value;
+        var accompanyDescription = document.getElementById('accompanyDescription').value;
+
+        if (accompanyPassword !== checkPassword) {
+            msgBlock.innerHTML = "两次密码不一致";
+            return;
+        } else if(accompanyName === "" || accompanyPassword === "" || accompanyPhone === "" || accompanySex === "" || accompanyAge === "" || accompanyIdCardNum === "" || accompanyWorkAge === "" || accompanyPrice === "" || accompanyDescription === ""){
+            msgBlock.innerHTML = "请填写完整信息";
+        } else {
+            fetch("/accompanimentSystem/accompanyAction.do?type=addAccompany&accompanyName="+ accompanyName
+                +"&accompanyPassword="+accompanyPassword+"&accompanyPhone="+accompanyPhone+"&accompanySex="+accompanySex+"&accompanyAge="+
+                accompanyAge+"&accompanyIdCardNum="+accompanyIdCardNum+"&accompanyWorkAge="+accompanyWorkAge+"&accompanyPrice="+accompanyPrice+"&accompanyDescription="+accompanyDescription).then((response)=>{
+                   msgBlock.innerHTML = "注册成功";
+            })};
+    }
+</script>
+
+<!-- jQuery -->
+<script src="static/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="static/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="static/js/adminlte.js"></script>
+</body>
+<script src="static/js/three.min.js"></script>
+<script src="static/js/vanta.clouds.min.js"></script>
+
+<script>
+    VANTA.CLOUDS({
+        el: "body",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00
+    })
+</script>
+<script>
+    VANTA.WAVES({
+        el: "#your-element-selector",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00
+    })
+</script>
+
+
+</html>
+

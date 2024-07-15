@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Neon Admin Panel">
+    <meta name="author" content="">
+    <title>数据总览</title>
+    <link rel="stylesheet" href="static/css/jquery-ui-1.10.3.custom.min.css">
+    <link rel="stylesheet" href="static/css/entypo.css">
+    <link rel="stylesheet" href="static/css/css.css">
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+    <link rel="stylesheet" href="static/css/neon-core.css">
+    <link rel="stylesheet" href="static/css/neon-theme.css">
+    <link rel="stylesheet" href="static/css/neon-forms.css">
+    <link rel="stylesheet" href="static/css/custom.css">
+    <link rel="stylesheet" href="static/css/adminlte.min.css">
+    <link rel="stylesheet" href="static/css/bootstrap-table.css">
+    <script src="static/js/jquery-1.11.0.min.js"></script>
+
+
+</head>
+<body class="page-body" data-url="http://neon.dev">
+
+<div class="page-container">
+    <div class="sidebar-menu">
+        <header class="logo-env">
+
+            <div class="logo">
+                <a href="/myApp/home/">
+                    <h3 style="color: #fff;font-weight: bold;margin-top: 5px;">校友会管理系统</h3>
+                </a>
+            </div>
+
+        </header>
+
+        <div class="sidebar-user-info">
+
+            <div class="sui-normal">
+                <a href="../selfInfo" class="user-link">
+                    <img style="width:95%;height: 95%" src="static/image/default2.jpg" alt="" class="img-circle">
+
+                    <strong style="text-align:center;margin-top:5px"></strong>
+                </a>
+            </div>
+
+        </div>
+
+
+        <ul id="main-menu" class="">
+            <li class="opened">
+                <a href="/untitled1_Web_exploded/index.do">
+                    <i class="entypo-gauge"></i>
+                    <span>首页</span>
+                </a>
+            </li>
+            <li class="user-opend">
+                <a href="#">
+                    <i class="entypo-book"></i>
+                    <span>浏览</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="/untitled1_Web_exploded/users.do">
+                            <span>浏览用户</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/untitled1_Web_exploded/allPosts.do">
+                            <span>浏览帖子</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="user-opend">
+                <a href="#">
+                    <i class="entypo-user"></i>
+                    <span>个人中心</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="/untitled1_Web_exploded/selfInfo.do">
+                            <span>个人信息展示及修改</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="dataOpened">
+                <a href="#">
+                    <i class="entypo-layout"></i>
+                    <span>管理发帖</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="/untitled1_Web_exploded/createPostView.do">
+                            <span>发帖</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/untitled1_Web_exploded/postTableView.do">
+                            <span>发帖历史</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="viewOpend">
+                <a href="#">
+                    <i class="entypo-chart-bar"></i>
+                    <span>个人捐赠</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="/untitled1_Web_exploded/donationList.do">
+                            <i class="entypo-light-down"></i>
+                            <span>捐赠列表</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/untitled1_Web_exploded/createDonation.do">
+                            <i class="entypo-feather"></i>
+                            <span>新增捐赠</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+    <div class="main-content">
+
+        <div class="row">
+            <!-- Raw Links -->
+            <div style="display:flex;" class="col-md-12 hidden-xs">
+
+                <ul style="margin-left:auto" class="list-inline links-list pull-right">
+                    <div>
+                        <a href="/untitled1_Web_exploded/login.do">
+                            退出登录 <i class="entypo-logout right"></i>
+                        </a>
+                    </div>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <hr style="margin-top:0">
+
+        <h2>校友花名册</h2>
+        <br>
+        <div class="card">
+            <div id="userTable" class="card-body"></div>
+        </div>
+
+        <footer class="main">
+        </footer>
+    </div>
+
+</div>
+<script>
+   fetch("/untitled1_Web_exploded/getAllUsers.do").then((response)=>{
+       console.log(response);
+       response.json().then((data)=>{
+           console.log(data);
+           $("#userTable").bootstrapTable({
+               columns:[{checkbox:true}, {field: 'userName', title: '姓名', width: 200, align: "center"},
+                   {field: 'age', title: '年龄', width: 100, align: "center"},
+                   {field: 'email', title: '邮箱', width: 400, align: "center"},
+                   {field: 'class', title: '班级', width: 300}],
+               data:data['data'],
+               pagination: true,
+               pageSize: 20,
+               search: true,
+               striped: true,
+           });
+       })
+   });
+   function remove(){
+       var rows = $('#userTable').bootstrapTable('getSelections');//获取选中行
+       if (rows.length == 0) {
+           console.log("请选择要删除的数据");
+           return;
+       }
+       console.log(rows);
+       var indexs=[];
+       for(var i=0;i<rows.length;i++){
+           indexs[i]=rows[i].index;
+       }
+//删除
+       $('#userTable').bootstrapTable('remove', {
+           field:'index',
+           values:indexs
+       })
+   }
+   var delBtn = document.getElementById('del');
+   delBtn.onclick = remove;
+
+
+</script>
+
+<!-- Bottom Scripts -->
+<script src="static/js/main-gsap.js"></script>
+<script src="static/js/jquery-ui-1.10.3.minimal.min.js"></script>
+<script src="static/js/bootstrap.js"></script>
+<script src="static/js/joinable.js"></script>
+<script src="static/js/resizeable.js"></script>
+<script src="static/js/fileinput.js"></script>
+<script src="static/js/neon-api.js"></script>
+<script src="static/js/neon-chat.js"></script>
+<script src="static/js/neon-custom.js"></script>
+<script src="static/js/neon-demo.js"></script>
+<script src="static/js/bootstrap-table.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+        "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<!--
+     This is a blank Struts configuration file with an example
+     welcome action/page and other commented sample elements.
+
+     Tiles and the Struts Validator are configured using the factory defaults
+     and are ready-to-use.
+
+     NOTE: If you have a generator tool to create the corresponding Java classes
+     for you, you could include the details in the "form-bean" declarations.
+     Otherwise, you would only define the "form-bean" element itself, with the
+     corresponding "name" and "type" attributes, as shown here.
+-->
+
+
+<struts-config>
+
+    <action-mappings>
+
+        <!-- ?? -->
+        <action path="/login" type="org.example.FrontedActions.LoginViewAction">
+            <forward name="SUCCESS" path="/templates/login.html"/>
+        </action>
+
+        <action path="/adminIndex" type="org.example.FrontedActions.AdminIndexAction">
+            <forward name="SUCCESS" path="/templates/admin_index.html"/>
+        </action>
+
+        <action path="/adminInfo" type="org.example.FrontedActions.AdminInfoAction">
+            <forward name="SUCCESS" path="/templates/admin_info.html"/>
+        </action>
+
+        <action path="/adminPatientManage" type="org.example.FrontedActions.AdminPatientManageAction">
+            <forward name="SUCCESS" path="/templates/admin_patient_manage.html"/>
+        </action>
+
+        <action path="/adminAccompanyManage" type="org.example.FrontedActions.AdminAccompanyManageAction">
+            <forward name="SUCCESS" path="/templates/admin_accompany_manage.html"/>
+        </action>
+
+        <action path="/patientIndex" type="org.example.FrontedActions.PatientIndexAction">
+            <forward name="SUCCESS" path="/templates/patient_index.html"/>
+        </action>
+
+        <action path="/patientInfo" type="org.example.FrontedActions.PatientInfoAction">
+            <forward name="SUCCESS" path="/templates/patient_info.html"/>
+        </action>
+
+        <action path="/patientOrderApply" type="org.example.FrontedActions.PatientOrderApplyAction">
+            <forward name="SUCCESS" path="/templates/patient_order_apply.html"/>
+        </action>
+
+        <action path="/patientOrderComment" type="org.example.FrontedActions.PatientOrderCommentAction">
+            <forward name="SUCCESS" path="/templates/patient_order_comment.html"/>
+        </action>
+
+        <action path="/patientOrderHistory" type="org.example.FrontedActions.PatientOrderHistoryAction">
+            <forward name="SUCCESS" path="/templates/patient_order_history.html"/>
+        </action>
+
+        <action path="/accompanyIndex" type="org.example.FrontedActions.AccompanyIndexAction">
+            <forward name="SUCCESS" path="/templates/accompany_index.html"/>
+        </action>
+
+        <action path="/accompanyInfo" type="org.example.FrontedActions.AccompanyInfoAction">
+            <forward name="SUCCESS" path="/templates/accompany_info.html"/>
+        </action>
+
+        <action path="/accompanyNewOrder" type="org.example.FrontedActions.AccompanyNewOrderAction">
+            <forward name="SUCCESS" path="/templates/accompany_neworder.html"/>
+        </action>
+
+        <action path="/accompanyOrders" type="org.example.FrontedActions.AccompanyOrdersAction">
+            <forward name="SUCCESS" path="/templates/accompany_orders.html"/>
+        </action>
+
+        <action path="/addPatient" type="org.example.FrontedActions.AddPatientAction">
+            <forward name="SUCCESS" path="/templates/add_patient.html"/>
+        </action>
+
+        <action path="/addAccompany" type="org.example.FrontedActions.AddAccompanyAction">
+            <forward name="SUCCESS" path="/templates/add_accompany.html"/>
+        </action>
+        <!-- ?? -->
+
+
+        <action path="/loginCheck" type="org.example.Actions.LoginAction">
+            <forward name="Admin_SUCCESS" path="/adminIndex.do"/>
+            <forward name="Patient_SUCCESS" path="/patientIndex.do"/>
+            <forward name="Accompany_SUCCESS" path="/accompanyIndex.do"/>
+            <forward name="FAIL" path="/login.do"/>
+        </action>
+
+        <action path="/logout" type="org.example.Actions.LogoutAction">
+            <forward name="SUCCESS" path="/login.do"/>
+        </action>
+
+        <action path="/patientAction" type="org.example.Actions.PatientAction">
+            <forward name="" path=""></forward>
+        </action>
+
+        <action path="/adminAction" type="org.example.Actions.AdminAction">
+            <forward name="" path=""></forward>
+        </action>
+
+        <action path="/accompanyAction" type="org.example.Actions.AccompanyAction">
+            <forward name="" path=""></forward>
+        </action>
+
+        <action path="/accompanyCommentAction" type="org.example.Actions.AccompanyCommentAction">
+            <forward name="" path=""></forward>
+        </action>
+
+        <action path="/accompanyOrderAction" type="org.example.Actions.AccompanyOrderAction">
+            <forward name="" path=""></forward>
+        </action>
+
+    </action-mappings>
+</struts-config>
+

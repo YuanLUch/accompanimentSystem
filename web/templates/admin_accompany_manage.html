@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Neon Admin Panel">
+    <meta name="author" content="">
+    <title>陪诊员管理</title>
+    <link rel="stylesheet" href="static/css/jquery-ui-1.10.3.custom.min.css">
+    <link rel="stylesheet" href="static/css/entypo.css">
+    <link rel="stylesheet" href="static/css/css.css">
+    <link rel="stylesheet" href="static/css/neon-core.css">
+    <link rel="stylesheet" href="static/css/neon-theme.css">
+    <link rel="stylesheet" href="static/css/neon-forms.css">
+    <link rel="stylesheet" href="static/css/custom.css">
+    <link rel="stylesheet" href="static/css/adminlte.min.css">
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+</head>
+<body class="page-body page-left-in" data-url="http://neon.dev">
+<div class="page-container">
+    <div class="sidebar-menu">
+        <header class="logo-env">
+            <div class="logo">
+                <a href="/myApp/home/">
+                    <h3 style="color: #fff;font-weight: bold;margin-top: 5px;">医院陪诊管理系统(管理员)</h3>
+                </a>
+            </div>
+        </header>
+        <div class="sidebar-user-info">
+            <div class="sui-normal">
+                <a href="../selfInfo" class="user-link">
+                    <img style="width:95%;height: 95%" src="static/image/default2.jpg" alt="" class="img-circle">
+                    <strong style="text-align:center;margin-top:5px"></strong>
+                </a>
+            </div>
+        </div>
+        <ul id="main-menu" class="">
+            <li class="opened">
+                <a href="/accompanimentSystem/adminIndex.do">
+                    <i class="entypo-gauge"></i>
+                    <span>首页</span>
+                </a>
+            </li>
+            <li class="opened">
+                <a href="/accompanimentSystem/adminInfo.do">
+                    <i class="entypo-gauge"></i>
+                    <span>个人信息管理</span>
+                </a>
+            </li>
+            <li class="opened">
+                <a href="/accompanimentSystem/adminPatientManage.do">
+                    <i class="entypo-gauge"></i>
+                    <span>患者管理</span>
+                </a>
+            </li>
+            <li class="opened">
+                <a href="/accompanimentSystem/adminAccompanyManage.do">
+                    <i class="entypo-gauge"></i>
+                    <span>陪诊员管理</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="row">
+            <!-- Raw Links -->
+            <div style="display:flex;" class="col-md-12 hidden-xs">
+                <ul style="margin-left:auto" class="list-inline links-list pull-right">
+                    <div>
+                        <a href="/accompanimentSystem/logout.do">
+                            退出登录 <i class="entypo-logout right"></i>
+                        </a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <hr style="margin-top:0">
+        <div class="row">
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h1>陪诊员管理</h1>
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table table-bordered" id="patientsTable">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>姓名</th>
+                                <th>性别</th>
+                                <th>年龄</th>
+                                <th>身份证号</th>
+                                <th>电话</th>
+                                <th>工龄</th>
+                                <th>日薪</th>
+                                <th>个人描述</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <!-- 陪诊员数据将在这里填充 -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <footer class="main">
+        </footer>
+    </div>
+</div>
+<link rel="stylesheet" href="static/css/jquery-jvectormap-1.2.2.css">
+<link rel="stylesheet" href="static/css/rickshaw.min.css">
+<script src="static/js/jquery-1.11.0.min.js"></script>
+<script src="static/js/main-gsap.js"></script>
+<script src="static/js/jquery-ui-1.10.3.minimal.min.js"></script>
+<script src="static/js/bootstrap.js"></script>
+<script src="static/js/joinable.js"></script>
+<script src="static/js/resizeable.js"></script>
+<script src="static/js/neon-api.js"></script>
+<script src="static/js/jquery.sparkline.min.js"></script>
+<script src="static/js/d3.v3.js"></script>
+<script src="static/js/rickshaw.min.js"></script>
+<script src="static/js/raphael-min.js"></script>
+<script src="static/js/morris.min.js"></script>
+<script src="static/js/toastr.js"></script>
+<script src="static/js/neon-chat.js"></script>
+<script src="static/js/neon-custom.js"></script>
+<script src="static/js/neon-demo.js"></script>
+<link rel="stylesheet" href="static/css/datatables.responsive.css">
+<script src="static/js/datatables.responsive.js"></script>
+<script src="static/js/jquery.dataTables.columnFilter.js"></script>
+<script src="static/js/jquery.dataTables.min.js"></script>
+<script src="static/js/TableTools.min.js"></script>
+<script src="static/js/dataTables.bootstrap.js"></script>
+<script src="static/js/lodash.min.js"></script>
+<script src="static/plugins/bootstrap/js/bootstrap.js"></script>
+<script src="static/plugins/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="static/plugins/bootstrap/js/bootstrap.js.map"></script>
+<script src="static/plugins/bootstrap/js/bootstrap.bundle.js.map"></script>
+<script src="static/js/echarts.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        // 获取所有患者信息
+        $.get("http://localhost:8080/accompanimentSystem/accompanyAction.do?type=getList", function(data) {
+            const accompanies = data.accompanies;
+            let patientsHtml = '';
+            accompanies.forEach(function(accompany) {
+                patientsHtml += `
+                    <tr>
+                        <td><input type="text" value="${accompany.accompanyId}" class="form-control edit-accompanyId" readonly></td>
+                        <td><input type="text" value="${accompany.accompanyName}" class="form-control edit-accompanyName" readonly></td>
+                        <td><input type="text" value="${accompany.accompanySex}" class="form-control edit-accompanySex" readonly></td>
+                        <td><input type="number" value="${accompany.accompanyAge}" class="form-control edit-accompanyAge" readonly></td>
+                        <td><input type="text" value="${accompany.accompanyIdCardNum}" class="form-control edit-accompanyIdCardNum" readonly></td>
+                        <td><input type="text" value="${accompany.accompanyPhone}" class="form-control edit-accompanyPhone" readonly></td>
+                        <td><input type="number" value="${accompany.accompanyWorkAge}" class="form-control edit-accompanyWorkAge" readonly></td>
+                        <td><input type="number" value="${accompany.accompanyPrice}" class="form-control edit-accompanyPrice" readonly></td>
+                        <td><input type="text" value="${accompany.accompanyDescription}" class="form-control edit-accompanyDescription" readonly></td>
+
+                        <td>
+                            <button class="btn btn-primary edit-btn" data-id="${accompany.accompanyId}">编辑</button>
+                            <button class="btn btn-success save-btn" data-id="${accompany.accompanyId}" style="display:none">保存</button>
+                            <button class="btn btn-danger delete-btn" data-id="${accompany.accompanyId}">删除</button>
+
+                        </td>
+                    </tr>
+                `;
+            });
+            $('#patientsTable tbody').html(patientsHtml);
+
+        });
+
+        // 编辑按钮点击事件
+        $(document).on('click', '.edit-btn', function() {
+            const row = $(this).closest('tr');
+            row.find('input').prop('readonly', false);
+            row.find('input').first().prop('readonly', true);
+            row.find('.edit-btn').hide();
+            row.find('.save-btn').show();
+        });
+
+        // 保存按钮点击事件
+        $(document).on('click', '.save-btn', function() {
+            const row = $(this).closest('tr');
+            const accompanyId = $(this).data('id');
+            const accompanyData = {
+                accompanyId: accompanyId,
+                accompanyName: row.find('.edit-accompanyName').val(),
+                accompanySex: row.find('.edit-accompanySex').val(),
+                accompanyAge: row.find('.edit-accompanyAge').val(),
+                accompanyIdCardNum: row.find('.edit-accompanyIdCardNum').val(),
+                accompanyPhone: row.find('.edit-accompanyPhone').val(),
+                accompanyWorkAge: row.find('.edit-accompanyWorkAge').val(),
+                accompanyPrice: row.find('.edit-accompanyPrice').val(),
+                accompanyDescription: row.find('.edit-accompanyDescription').val()
+            };
+
+            // 提交更新的患者信息
+            $.post('http://localhost:8080/accompanimentSystem/accompanyAction.do?type=updateByAdmin', accompanyData, function(response) {
+                alert('陪诊员信息已更新');
+                row.find('input').prop('readonly', true);
+                row.find('.edit-btn').show();
+                row.find('.save-btn').hide();
+            }).fail(function() {
+                alert("更新失败，请重试!");
+            });
+        });
+
+            // 删除按钮点击事件
+            $(document).on('click', '.delete-btn', function() {
+                const patientId = $(this).data('id');
+                if (confirm("确定要删除这条信息吗？")) {
+                    $.post("http://localhost:8080/accompanimentSystem/accompanyAction.do?type=delete", { accompanyId: patientId }, function(response) {
+                        alert("删除成功!");
+                        location.reload();
+                    }).fail(function() {
+                        alert("删除失败，请重试!");
+                    });
+                }
+            });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | Registration Page</title>
+
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="static/plugins/fontawesome-free/css/all.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="static/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="static/css/adminlte.min.css">
+  <link rel="">
+</head>
+<body class="hold-transition register-page">
+<div class="register-box">
+  <div class="register-logo">
+    <a href="../../index2.html"><b>注册</b></a>
+  </div>
+
+  <div class="card" style="border-radius: 20px">
+    <div class="card-body register-card-body" style="background-color: rgba(255, 255, 255, 0.1)">
+      <p class="login-box-msg">Register a new membership</p>
+
+      <div>
+
+            <div id="msg" class="bg-success" style="color: white; text-align: center" hidden="hidden">
+                <b style="text-align: center">注册成功</b>
+            </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="编号" name="id" id="id">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="用户名" name="username" id="name">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" placeholder="密码" name="password" id="password">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" placeholder="请确认密码" name="checkPassword" id="checkPassword">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <input type="email" class="form-control" placeholder="邮箱" name="email" id="email">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="年龄" name="age" id="age">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="row">
+          <div class="col-8">
+            <div class="icheck-primary">
+              <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+              <label for="agreeTerms">
+               同意用户条款 <a href="#">terms</a>
+              </label>
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-4">
+            <button id="submit" type="submit" class="btn btn-success btn-block">注册</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </div>
+
+
+
+      <a href="/untitled1_Web_exploded/login.do" class="text-center" style="color: black;">已有账号</a>
+    </div>
+    <!-- /.form-box -->
+  </div><!-- /.card -->
+</div>
+<!-- /.register-box -->
+<script>
+  var submit = document.getElementById('submit');
+  submit.onclick = function () {
+    var msgBlock = document.getElementById('msg');
+    msgBlock.removeAttribute("hidden");
+    var id = document.getElementById('id').value;
+    var name = document.getElementById("name").value;
+    var password = document.getElementById("password").value;
+    var email = document.getElementById('email').value;
+    var age = document.getElementById("age").value;
+
+    fetch("/untitled1_Web_exploded/register.do?id="+ id +"&userName="+name+"&age="+age+"&email="+email+"&password="+password).then((response)=>{
+    })};
+</script>
+
+<!-- jQuery -->
+<script src="static/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="static/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="static/js/adminlte.js"></script>
+</body>
+<script src="static/js/three.min.js"></script>
+<script src="static/js/vanta.clouds.min.js"></script>
+
+<script>
+VANTA.CLOUDS({
+  el: "body",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00
+})
+</script>
+<script>
+VANTA.WAVES({
+  el: "#your-element-selector",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  scaleMobile: 1.00
+})
+</script>
+
+
+</html>
+

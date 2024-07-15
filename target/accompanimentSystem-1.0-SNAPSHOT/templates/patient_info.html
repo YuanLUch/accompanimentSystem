@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Neon Admin Panel">
+    <meta name="author" content="">
+
+    <title>首页</title>
+
+
+    <link rel="stylesheet" href="static/css/jquery-ui-1.10.3.custom.min.css">
+    <link rel="stylesheet" href="static/css/entypo.css">
+    <link rel="stylesheet" href="static/css/css.css">
+    <link rel="stylesheet" href="static/css/neon-core.css">
+    <link rel="stylesheet" href="static/css/neon-theme.css">
+    <link rel="stylesheet" href="static/css/neon-forms.css">
+    <link rel="stylesheet" href="static/css/custom.css">
+    <link rel="stylesheet" href="static/css/adminlte.min.css">
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+
+</head>
+<body class="page-body  page-left-in" data-url="http://neon.dev">
+
+<div class="page-container">
+
+    <div class="sidebar-menu">
+        <header class="logo-env">
+
+            <div class="logo">
+                <a href="#">
+                    <h3 style="color: #fff;font-weight: bold;margin-top: 5px;">医院陪诊管理系统(患者端)</h3>
+                </a>
+            </div>
+
+        </header>
+
+        <div class="sidebar-user-info">
+
+            <div class="sui-normal">
+                <a href="#" class="user-link">
+                    <img style="width:95%;height: 95%" src="static/image/default2.jpg" alt="" class="img-circle">
+
+                    <strong style="text-align:center;margin-top:5px"></strong>
+                </a>
+            </div>
+
+        </div>
+
+
+        <ul id="main-menu" class="">
+            <li class="opened">
+                <a href="/accompanimentSystem/patientIndex.do">
+                    <i class="entypo-gauge"></i>
+                    <span>首页</span>
+                </a>
+            </li>
+
+            <li class="opened">
+                <a href="/accompanimentSystem/patientInfo.do">
+                    <i class="entypo-gauge"></i>
+                    <span>个人信息管理</span>
+                </a>
+            </li>
+
+            <li class="dataOpened">
+                <a href="#">
+                    <i class="entypo-layout"></i>
+                    <span>陪诊订单</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="/accompanimentSystem/patientOrderApply.do">
+                            <span>陪诊订单申请</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/accompanimentSystem/patientOrderComment.do">
+                            <span>陪诊订单评价</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/accompanimentSystem/patientOrderHistory.do">
+                            <span>陪诊订单记录</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <div class="main-content">
+
+        <div class="row">
+            <!-- Raw Links -->
+            <div style="display:flex;" class="col-md-12 hidden-xs">
+
+                <ul style="margin-left:auto" class="list-inline links-list pull-right">
+                    <div>
+                        <a href="/accompanimentSystem/logout.do">
+                            退出登录 <i class="entypo-logout right"></i>
+                        </a>
+                    </div>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <hr style="margin-top:0">
+
+
+        <div class="row">
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-12">
+                <h1>患者信息</h1>
+                <div class="card">
+                    <div class="card-body">
+                        <form id="adminInfoForm">
+                            <div class="form-group">
+                                <label for="patientName">姓名</label>
+                                <input type="text" class="form-control" id="patientName" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientPhone">电话</label>
+                                <input type="text" class="form-control" id="patientPhone" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientSex">性别</label>
+                                <input type="text" class="form-control" id="patientSex" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientAge">年龄</label>
+                                <input type="number" class="form-control" id="patientAge" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientIdCardNum">身份证号</label>
+                                <input type="text" class="form-control" id="patientIdCardNum" disabled>
+                            </div>
+                            <button type="button" class="btn btn-primary" id="editButton">编辑</button>
+                            <button type="button" class="btn btn-success" id="saveButton" style="display:none;">保存</button>
+                        </form>
+                    </div>
+                </div>
+                <h1>修改密码</h1>
+                <div class="card" style="margin-top:20px;">
+                    <div class="card-body">
+                        <h1 class="card-title">修改密码</h1>
+                        <div class="form-group">
+                            <input type="password" id="newPassword" class="form-control" placeholder="新密码">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="confirmPassword" class="form-control" placeholder="确认新密码">
+                        </div>
+                        <button class="btn btn-primary" id="updatePasswordButton">修改密码</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div><!-- Footer -->
+        <div class="row">
+
+        </div>
+        <footer class="main">
+        </footer>
+    </div>
+
+
+</div>
+
+
+<link rel="stylesheet" href="static/css/jquery-jvectormap-1.2.2.css">
+<link rel="stylesheet" href="static/css/rickshaw.min.css">
+
+<script src="static/js/jquery-1.11.0.min.js"></script>
+<script src="static/js/main-gsap.js"></script>
+<script src="static/js/jquery-ui-1.10.3.minimal.min.js"></script>
+<script src="static/js/bootstrap.js"></script>
+<script src="static/js/joinable.js"></script>
+<script src="static/js/resizeable.js"></script>
+<script src="static/js/neon-api.js"></script>
+<script src="static/js/jquery.sparkline.min.js"></script>
+<script src="static/js/d3.v3.js"></script>
+<script src="static/js/rickshaw.min.js"></script>
+<script src="static/js/raphael-min.js"></script>
+<script src="static/js/morris.min.js"></script>
+<script src="static/js/toastr.js"></script>
+<script src="static/js/neon-chat.js"></script>
+<script src="static/js/neon-custom.js"></script>
+<script src="static/js/neon-demo.js"></script>
+<link rel="stylesheet" href="static/css/datatables.responsive.css">
+
+<script src="static/js/datatables.responsive.js"></script>
+<script src="static/js/jquery.dataTables.columnFilter.js"></script>
+<script src="static/js/jquery.dataTables.min.js"></script>
+<script src="static/js/TableTools.min.js"></script>
+<script src="static/js/dataTables.bootstrap.js"></script>
+<script src="static/js/lodash.min.js"></script>
+</body>
+
+
+<script src="static/plugins/bootstrap/js/bootstrap.js"></script>
+<script src="static/plugins/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="static/plugins/bootstrap/js/bootstrap.js.map"></script>
+<script src="static/plugins/bootstrap/js/bootstrap.bundle.js.map"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        // 患者信息
+        $.get("http://localhost:8080/accompanimentSystem/patientAction.do?type=getInfo", function(data) {
+            $("#patientName").val(data.patientName);
+            $("#patientPhone").val(data.patientPhone);
+            $("#patientSex").val(data.patientSex);
+            $("#patientAge").val(data.patientAge);
+            $("#patientIdCardNum").val(data.patientIdCardNum);
+        });
+
+        // 编辑按钮点击事件
+        $("#editButton").click(function() {
+            $("#patientName, #patientPhone, #patientSex, #patientAge, #patientIdCardNum").prop("disabled", false);
+            $("#editButton").hide();
+            $("#saveButton").show();
+        });
+
+        // 保存按钮点击事件
+        $("#saveButton").click(function() {
+            const patientName = $("#patientName").val();
+            const patientPhone = $("#patientPhone").val();
+            const patientSex = $("#patientSex").val();
+            const patientAge = $("#patientAge").val();
+            const patientIdCardNum = $("#patientIdCardNum").val();
+
+            $.post("http://localhost:8080/accompanimentSystem/patientAction.do?type=update", {
+                patientName: patientName,
+                patientPhone: patientPhone,
+                patientSex: patientSex,
+                patientAge: patientAge,
+                patientIdCardNum: patientIdCardNum
+            }, function(response) {
+                alert("信息更新成功!");
+                $("#patientName, #patientPhone, #patientSex, #patientAge, #patientIdCardNum").prop("disabled", true);
+                $("#saveButton").hide();
+                $("#editButton").show();
+            });
+        });
+
+        // 修改密码按钮点击事件
+        $("#updatePasswordButton").click(function() {
+            const newPassword = $("#newPassword").val();
+            const confirmPassword = $("#confirmPassword").val();
+
+            if (newPassword !== confirmPassword) {
+                alert("密码不匹配，请重新输入");
+                return;
+            }
+
+            $.post("http://localhost:8080/accompanimentSystem/patientAction.do?type=resetPassword", {
+                new_password: newPassword
+            }, function(response) {
+                alert("密码更新成功!");
+                $("#newPassword").val("");
+                $("#confirmPassword").val("");
+            });
+        });
+    });
+</script>
+
+</html>

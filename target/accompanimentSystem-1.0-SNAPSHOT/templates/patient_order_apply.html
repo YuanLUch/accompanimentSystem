@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Neon Admin Panel">
+    <meta name="author" content="">
+
+    <title>首页</title>
+
+    <link rel="stylesheet" href="static/css/jquery-ui-1.10.3.custom.min.css">
+    <link rel="stylesheet" href="static/css/entypo.css">
+    <link rel="stylesheet" href="static/css/css.css">
+    <link rel="stylesheet" href="static/css/neon-core.css">
+    <link rel="stylesheet" href="static/css/neon-theme.css">
+    <link rel="stylesheet" href="static/css/neon-forms.css">
+    <link rel="stylesheet" href="static/css/custom.css">
+    <link rel="stylesheet" href="static/css/adminlte.min.css">
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+
+    <style>
+        .narrow-column {
+            width: 70px;
+        }
+        .wide-column {
+            width: 200px;
+        }
+    </style>
+</head>
+<body class="page-body page-left-in" data-url="http://neon.dev">
+
+<div class="page-container">
+
+    <div class="sidebar-menu">
+        <header class="logo-env">
+            <div class="logo">
+                <a href="#">
+                    <h3 style="color: #fff; font-weight: bold; margin-top: 5px;">医院陪诊管理系统(患者端)</h3>
+                </a>
+            </div>
+        </header>
+
+        <div class="sidebar-user-info">
+            <div class="sui-normal">
+                <a href="#" class="user-link">
+                    <img style="width:95%; height: 95%" src="static/image/default2.jpg" alt="" class="img-circle">
+                    <strong style="text-align: center; margin-top: 5px"></strong>
+                </a>
+            </div>
+        </div>
+
+        <ul id="main-menu" class="">
+            <li class="opened">
+                <a href="/accompanimentSystem/patientIndex.do">
+                    <i class="entypo-gauge"></i>
+                    <span>首页</span>
+                </a>
+            </li>
+
+            <li class="opened">
+                <a href="/accompanimentSystem/patientInfo.do">
+                    <i class="entypo-gauge"></i>
+                    <span>个人信息管理</span>
+                </a>
+            </li>
+
+            <li class="dataOpened">
+                <a href="#">
+                    <i class="entypo-layout"></i>
+                    <span>陪诊订单</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="/accompanimentSystem/patientOrderApply.do">
+                            <span>陪诊订单申请</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/accompanimentSystem/patientOrderComment.do">
+                            <span>陪诊订单评价</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/accompanimentSystem/patientOrderHistory.do">
+                            <span>陪诊订单记录</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="row">
+            <!-- Raw Links -->
+            <div style="display: flex;" class="col-md-12 hidden-xs">
+                <ul style="margin-left: auto" class="list-inline links-list pull-right">
+                    <div>
+                        <a href="/accompanimentSystem/logout.do">
+                            退出登录 <i class="entypo-logout right"></i>
+                        </a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+
+        <hr style="margin-top: 0">
+
+        <div class="row">
+            <div class="col-12">
+                <h1>陪诊申请</h1>
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table table-bordered" id="patientsTable">
+                            <thead>
+                            <tr>
+                                <th class="narrow-column">陪诊员ID</th>
+                                <th>姓名</th>
+                                <th class="narrow-column">性别</th>
+                                <th class="narrow-column">年龄</th>
+                                <th>电话</th>
+                                <th class="narrow-column">工龄</th>
+                                <th class="narrow-column">日薪</th>
+                                <th class="wide-column">个人简介</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <!-- 数据将在这里填充 -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Order Form -->
+        <div id="orderForm" style="display: none;">
+            <h3>填写订单信息</h3>
+            <form id="orderFormContent">
+                <input type="hidden" id="selectedAccompanyId">
+                <div class="form-group">
+                    <label for="accompanyOrderTime">陪诊时间:</label>
+                    <input type="text" id="accompanyOrderTime" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="accompanyOrderDescription">订单描述:</label>
+                    <input type="text" id="accompanyOrderDescription" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="hospital">医院:</label>
+                    <input type="text" id="hospital" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="department">科室:</label>
+                    <input type="text" id="department" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="bodyDetail">身体状况:</label>
+                    <input type="text" id="bodyDetail" class="form-control">
+                </div>
+                <button type="button" id="submitOrder" class="btn btn-primary">提交订单</button>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <div class="row"></div>
+        <footer class="main"></footer>
+    </div>
+</div>
+
+<link rel="stylesheet" href="static/css/jquery-jvectormap-1.2.2.css">
+<link rel="stylesheet" href="static/css/rickshaw.min.css">
+
+<script src="static/js/jquery-1.11.0.min.js"></script>
+<script src="static/js/main-gsap.js"></script>
+<script src="static/js/jquery-ui-1.10.3.minimal.min.js"></script>
+<script src="static/js/bootstrap.js"></script>
+<script src="static/js/joinable.js"></script>
+<script src="static/js/resizeable.js"></script>
+<script src="static/js/neon-api.js"></script>
+<script src="static/js/jquery.sparkline.min.js"></script>
+<script src="static/js/d3.v3.js"></script>
+<script src="static/js/rickshaw.min.js"></script>
+<script src="static/js/raphael-min.js"></script>
+<script src="static/js/morris.min.js"></script>
+<script src="static/js/toastr.js"></script>
+<script src="static/js/neon-chat.js"></script>
+<script src="static/js/neon-custom.js"></script>
+<script src="static/js/neon-demo.js"></script>
+<link rel="stylesheet" href="static/css/datatables.responsive.css">
+
+<script src="static/js/datatables.responsive.js"></script>
+<script src="static/js/jquery.dataTables.columnFilter.js"></script>
+<script src="static/js/jquery.dataTables.min.js"></script>
+<script src="static/js/TableTools.min.js"></script>
+<script src="static/js/dataTables.bootstrap.js"></script>
+<script src="static/js/lodash.min.js"></script>
+
+<script src="static/plugins/bootstrap/js/bootstrap.js"></script>
+<script src="static/plugins/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="static/plugins/bootstrap/js/bootstrap.js.map"></script>
+<script src="static/plugins/bootstrap/js/bootstrap.bundle.js.map"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        // 获取所有患者信息
+        $.get("http://localhost:8080/accompanimentSystem/accompanyAction.do?type=getList", function (data) {
+            const patients = data.accompanies;
+            let patientsHtml = '';
+
+            patients.forEach(patient => {
+                patientsHtml += `
+                    <tr>
+                        <td>${patient.accompanyId}</td>
+                        <td>${patient.accompanyName}</td>
+                        <td>${patient.accompanySex}</td>
+                        <td>${patient.accompanyAge}</td>
+                        <td>${patient.accompanyPhone}</td>
+                        <td>${patient.accompanyWorkAge}</td>
+                        <td>${patient.accompanyPrice}</td>
+                        <td>${patient.accompanyDescription}</td>
+                        <td>
+                            <button class="btn btn-primary select-btn" data-id="${patient.accompanyId}">选择</button>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            $('#patientsTable tbody').html(patientsHtml);
+        });
+
+        // 日期选择框初始化
+        $("#accompanyOrderTime").datepicker({
+            dateFormat: "yy-mm-dd"
+        });
+
+        // 处理选择按钮点击事件
+        $(document).on('click', '.select-btn', function() {
+            const accompanyId = $(this).data('id');
+            $('#selectedAccompanyId').val(accompanyId);
+            $('#orderForm').show();
+            $('html, body').animate({
+                scrollTop: $("#orderForm").offset().top
+            }, 1000);
+        });
+
+        // 处理提交订单按钮点击事件
+        $('#submitOrder').click(function() {
+            const accompanyId = $('#selectedAccompanyId').val();
+            const accompanyOrderTime = $('#accompanyOrderTime').val();
+            const accompanyOrderDescription = $('#accompanyOrderDescription').val();
+            const hospital = $('#hospital').val();
+            const department = $('#department').val();
+            const bodyDetail = $('#bodyDetail').val();
+
+            $.post('http://localhost:8080/accompanimentSystem/accompanyOrderAction.do?type=addOrder', {
+                accompanyId: accompanyId,
+                accompanyOrderTime: accompanyOrderTime,
+                accompanyOrderDescription: accompanyOrderDescription,
+                hospital: hospital,
+                department: department,
+                bodyDetail: bodyDetail
+            }, function(response) {
+                    alert('订单提交成功');
+                    $('#orderForm').hide();
+                    $('#orderFormContent')[0].reset();
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
